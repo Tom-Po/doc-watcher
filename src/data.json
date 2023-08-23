@@ -1,0 +1,39 @@
+{
+    "availabilities": [
+        {
+            "date": "2023-08-20",
+            "slots": [],
+            "substitution": null,
+            "appointment_request_slots": []
+        },
+        {
+            "date": "2023-08-21",
+            "slots": [
+                "2023-08-21T14:00:00.000+02:00"
+            ],
+            "substitution": null,
+            "appointment_request_slots": []
+        },
+        {
+            "date": "2023-08-22",
+            "slots": [
+                "2023-08-22T16:00:00.000+02:00"
+            ],
+            "substitution": null,
+            "appointment_request_slots": []
+        },
+        {
+            "date": "2023-08-23",
+            "slots": [],
+            "substitution": null,
+            "appointment_request_slots": []
+        },
+        {
+            "date": "2023-08-24",
+            "slots": [],
+            "substitution": null,
+            "appointment_request_slots": []
+        }
+    ],
+    "total": 2
+}

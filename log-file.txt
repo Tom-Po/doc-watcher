@@ -1,0 +1,247 @@
+
+> js-doctolib@1.0.0 start:dev
+> npx nodemon
+
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,js[39m
+[32m[nodemon] starting `npx ts-node ./src/index.ts`[39m
+This is pass n°: 1
+Init Search
+ 
+Current startDate (default today)
+2024-02-13T00:00:00.000Z
+Appointment Date
+2024-02-20T00:00:00.000Z
+ 
+No previous match
+This is pass n°: 2
+Continuing search with next_slot:
+2024-02-19T08:40:00.000Z
+Found available booking
+RDV Dispo le 2024-02-19 à 09:40
+RDV Dispo le 2024-02-19 à 10:20
+RDV Dispo le 2024-02-19 à 10:40
+RDV Dispo le 2024-02-19 à 11:00
+RDV Dispo le 2024-02-19 à 11:40
+RDV Dispo le 2024-02-19 à 12:20
+RDV Dispo le 2024-02-19 à 12:40
+RDV Dispo le 2024-02-19 à 14:40
+RDV Dispo le 2024-02-19 à 15:00
+RDV Dispo le 2024-02-19 à 15:20
+RDV Dispo le 2024-02-19 à 15:40
+RDV Dispo le 2024-02-19 à 16:00
+RDV Dispo le 2024-02-19 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 3
+Continuing search with next_slot:
+2023-08-21T13:09:24.029Z
+No previous match
+This is pass n°: 4
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 5
+Continuing search with next_slot:
+2023-08-21T13:09:26.789Z
+No previous match
+This is pass n°: 6
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 7
+Continuing search with next_slot:
+2023-08-21T13:09:29.204Z
+No previous match
+This is pass n°: 8
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 9
+Continuing search with next_slot:
+2023-08-21T13:09:31.227Z
+No previous match
+This is pass n°: 10
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 11
+Continuing search with next_slot:
+2023-08-21T13:09:33.135Z
+No previous match
+This is pass n°: 12
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 13
+Continuing search with next_slot:
+2023-08-21T13:09:35.080Z
+No previous match
+This is pass n°: 14
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 15
+Continuing search with next_slot:
+2023-08-21T13:09:36.972Z
+No previous match
+This is pass n°: 16
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 17
+Continuing search with next_slot:
+2023-08-21T13:09:43.194Z
+No previous match
+This is pass n°: 18
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 19
+Continuing search with next_slot:
+2023-08-21T13:09:45.144Z
+No previous match
+This is pass n°: 20
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
+This is pass n°: 21
+Continuing search with next_slot:
+2023-08-21T13:09:52.070Z
+No previous match
+This is pass n°: 22
+Continuing search with next_slot:
+2023-09-18T10:00:00.000Z
+Found available booking
+RDV Dispo le 2023-09-18 à 12:00
+RDV Dispo le 2023-09-18 à 12:20
+RDV Dispo le 2023-09-18 à 12:40
+RDV Dispo le 2023-09-18 à 14:00
+RDV Dispo le 2023-09-18 à 14:20
+RDV Dispo le 2023-09-18 à 14:40
+RDV Dispo le 2023-09-18 à 15:00
+RDV Dispo le 2023-09-18 à 15:20
+RDV Dispo le 2023-09-18 à 15:40
+RDV Dispo le 2023-09-18 à 16:00
+RDV Dispo le 2023-09-18 à 16:20
+Sending SMS...
+Resetting search ...
