@@ -1,24 +1,32 @@
-import axios from 'axios'
-import { DoctolibAvailabilitiesFile } from './type'
+import axios from 'axios';
+import { DoctolibAvailabilitiesFile } from './type';
+import { Logger } from './utils';
+
+'https://www.doctolib.fr/osteopathe/paris/charlotte-redon-paris/booking/availabilities?telehealth=false&placeId=practice-206971&specialityId=10&motiveIds%5B%5D=3140257'
 
 const baseUrl = "https://www.doctolib.fr/availabilities.json?"
-const visitMotiveIds = 3140257
-const agendaIds = 114622
-const practiceIds = 42508
-const limit = 10
-const RETRY_DELAY = 60000
 
+const visitMotiveIds = 3140257
+const agendaIds = 521038
+const practiceIds = 206971
+const limit = 10
+
+// One hour
+const RETRY_DELAY = 3600000
 // Default today
-let startDate = new Date("2023-12-13")
+let startDate = new Date()
 // Default one week
-const appointmentDate = new Date("2024-01-01")
+const appointmentDate = new Date("2023-09-19")
+
+const logger = Logger()
+
+// https://www.doctolib.fr/availabilities.json?visit_motive_ids=3140257&agenda_ids=521038&practice_ids=206971&telehealth=false&limit=5&start_date=2023-09-23
+// `${baseUrl}isNewPatient=false&agenda_ids=${agendaIds}&isNewPatientBlocked=false&telehealth=false&practice_ids=${practiceIds}&specialityId=21&motiveCategoryIds[]=19512&visit_motive_ids[]=698035&start_date=${startDate}`
 
 const builder = (baseUrl: string, visitMotiveIds: string | number, agendaIds: string | number, practiceIds: string | number, limit: string | number, startDate: string | number) => (
-    `${baseUrl}isNewPatient=false&agenda_ids=${agendaIds}&isNewPatientBlocked=false&telehealth=false&practice_ids=${practiceIds}&specialityId=21&motiveCategoryIds[]=19512&visit_motive_ids[]=698035&start_date=${startDate}`
+    `${baseUrl}visit_motive_ids=${visitMotiveIds}&agenda_ids=${agendaIds}&practice_ids=${practiceIds}&telehealth=false&limit=${limit}&start_date=${startDate}`
 )
-// `${baseUrl}visit_motive_ids=${visitMotiveIds}&agenda_ids=${agendaIds}&practice_ids=${practiceIds}&telehealth=false&limit=${limit}&start_date=${startDate}`
-
-async function getData(url: string) {
+export async function getData(url: string) {
     return await axios.get(url)
 }
 
@@ -36,32 +44,36 @@ function getAvailableSlots(data: DoctolibAvailabilitiesFile) {
 
 let pass = 0
 let lastPass = 0
-let hasBeenReset = false
 let hasBeenStarted = false
 
 async function initSearch(slots: Date[]) {
     pass++
     console.log(`This is pass n°: ${pass}`);
 
-    if (lastPass > 0) {
-        console.log(`Last pass was ${lastPass} ago`);
+
+    const sleepSearch = (timeout: number = RETRY_DELAY) => setTimeout(() => {
+        startDate = new Date()
+        initSearch([])
+    }, timeout)
+
+    const resetSearch = () => {
+        logger.reset()
+        sleepSearch()
     }
 
-    const loggerInfos = (start: Date, appointment: Date) => {
-        console.log('Init Search');
-        console.log(' ');
-        console.log('Current startDate (default today)');
-        console.log(start)
-        console.log('Appointment Date');
-        console.log(appointment)
+    // If the new start date is set further than the appointment
+    // Sleep timeout and retry from today
+    if (startDate.getTime() > appointmentDate.getTime()) {
+        logger.tooLate()
+        resetSearch()
+        return false
     }
 
     if (!hasBeenStarted) {
-        loggerInfos(startDate, appointmentDate)
+        logger.init(startDate, appointmentDate)
         hasBeenStarted = true
     } else {
-        console.log('Continuing search with next_slot:');
-        console.log(startDate)
+        logger.nextSlot(startDate)
     }
 
     let newSlots: Date[] = [...slots]
@@ -77,25 +89,6 @@ async function initSearch(slots: Date[]) {
 
     const data = await getData(buildUrl)
 
-    // If the new start date is set further than the appointment
-    // Sleep timeout and retry from today
-    const sleepSearch = (timeout: number) => setTimeout(() => {
-        startDate = new Date()
-        initSearch([])
-    }, timeout)
-
-    const resetSearch = (delay = RETRY_DELAY) => {
-        console.log("Resetting search ...");
-        hasBeenReset = true
-        sleepSearch(delay)
-    }
-
-    if (startDate.getTime() > appointmentDate.getTime()) {
-        console.log("Next_step is later than current appointment");
-        resetSearch()
-        return false
-    }
-
     // If we detect next_slot, it means all slots are empty
     // We set start date to next_slot and reset
     if (data.data.next_slot) {
@@ -106,16 +99,14 @@ async function initSearch(slots: Date[]) {
         const emptySlots = sortSlots(newSlots)
 
         if (emptySlots.length > 0) {
-            console.log('Found available booking');
-            emptySlots.forEach(s => {
-                console.log(`RDV Dispo le ${s.toISOString().split('T')[0]} à ${("0" + s.getHours()).slice(-2)}:${("0" + s.getMinutes()).slice(-2)}`);
-            })
+            const fistEmptySlot = emptySlots[0]
+            logger.availableBooking(emptySlots)
             console.log("Sending SMS...");
+            console.log(`RDV Dispo le ${fistEmptySlot.toISOString().split('T')[0]} à ${("0" + fistEmptySlot.getHours()).slice(-2)}:${("0" + fistEmptySlot.getMinutes()).slice(-2)}`)
+            // sendSMS(`RDV Dispo le ${fistEmptySlot.toISOString().split('T')[0]} à ${("0" + fistEmptySlot.getHours()).slice(-2)}:${("0" + fistEmptySlot.getMinutes()).slice(-2)}`)
             return false
         }
         resetSearch()
     }
-
-
 }
 initSearch([])
