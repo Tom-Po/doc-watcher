@@ -77,7 +77,7 @@ async function search(params: SearchParams) {
       agendaIds,
       practiceIds,
       limit,
-      startDate.toISOString().split('T')[0]
+      new Date(startDate).toISOString().split('T')[0]
     ));
 
     if (data.reason === "not_opened_availability") {

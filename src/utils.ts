@@ -1,10 +1,5 @@
-// // Compare arrays 
-// export function comparArr(arr1: any[], arr2: any[]) {
-//     return JSON.stringify(arr1) === JSON.stringify(arr2)
-
 import { DoctolibAvailabilitiesFile } from "./type";
 
-// }
 const Logger = () => {
     const init = (start: Date, appointment: Date) => {
         console.log(' ');
