@@ -18,9 +18,13 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
     "@types/twilio": "^3.19.3",
     "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "twilio": "^4.15.0"
   }
 }

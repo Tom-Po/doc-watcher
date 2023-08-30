@@ -60,8 +60,17 @@ const getAvailableSlots = (data: DoctolibAvailabilitiesFile) => {
     })
     return allAvailableSlots
 }
+
+function msToTime(duration: number) {
+    let minutes: number | string = Math.floor((duration / (1000 * 60)))
+
+
+    return minutes;
+}
+
 export {
     Logger,
     getAvailableSlots,
-    filterSlotsInRange
+    filterSlotsInRange,
+    msToTime
 };

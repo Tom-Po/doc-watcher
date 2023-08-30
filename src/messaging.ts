@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { Twilio } from 'twilio';
 
 dotenv.config()
+
 async function shortenUrl(url: string) {
     const headers = {
         "Content-Type": "application/json",
@@ -18,12 +19,12 @@ async function shortenUrl(url: string) {
     return response.data.data.tiny_url
 }
 
-async function sendSMS(message: string) {
+async function sendSMS(message: string, to = process.env.MY_PHONE_NUMBER) {
     const smsClient = new Twilio(process.env.TWILIO_SSID, process.env.TWILIO_API_KEY)
     return smsClient.messages.create({
         body: message,
         from: process.env.TWILIO_PHONE_NUMBER,
-        to: process.env.CLIENT_PHONE_NUMBER as string
+        to: to as string
     })
         .then((message) => console.log(message))
         .catch((error) => console.log(error))
