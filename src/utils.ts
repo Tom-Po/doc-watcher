@@ -45,7 +45,7 @@ const Logger = () => {
     }
 }
 const filterSlotsInRange = (slots: Date[], start: Date, appointment: Date) => (slots.filter((s) => (
-    s.getTime() < appointment.getTime() && s.getTime() >= start.getTime()
+    s.getTime() < new Date(appointment).getTime() && s.getTime() >= start.getTime()
 )))
 
 const getAvailableSlots = (data: DoctolibAvailabilitiesFile) => {

@@ -27,7 +27,8 @@ async function fetchData(requestParams: string) {
 
 function handleNextSlot(nextSlot: string, params: SearchParams) {
   const nextSlotDate = new Date(nextSlot);
-  if (nextSlotDate.getTime() > params.appointmentDate.getTime()) {
+  console.log(params.appointmentDate)
+  if (nextSlotDate.getTime() > new Date(params.appointmentDate).getTime()) {
     logger.tooLate();
     resetSearch(params);
   } else {

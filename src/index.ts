@@ -3,14 +3,28 @@ import cors from 'cors';
 import express, { Request } from 'express';
 import search from './search';
 
-const visitMotiveIds = 2119557
-const agendaIds = 337471
-const practiceIds = 133609
+import { createServer } from 'http';
+import { Server, Socket } from 'socket.io';
+
+
 const limit = 10
 // Default today
-let startDate = new Date("2023-09-01")
+let startDate = new Date()
 // Default one week
-const appointmentDate = new Date("2024-01-5")
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
+    cors: {
+        origin: '*',
+    }
+});
+
+io.on("connection", (socket: Socket) => {
+    // ...
+    console.log("connection")
+});
+
+httpServer.listen(430);
 
 const app = express()
 const port = 4201
@@ -37,11 +51,11 @@ app.get('/availabilities', async (req: Request<{ visit_motive_ids: string, agend
     const visitMotiveIds = (req.query.visit_motive_ids as unknown as number) || 2119557
     const agendaIds = (req.query.agenda_ids as unknown as number) || 337471
     const practiceIds = (req.query.practice_ids as unknown as number) || 133609
-    const startDate = (req.query.start_date as unknown as Date) || new Date().toISOString().split('T')[0]
+    const appointmentDate = (req.query.start_date as unknown as Date) || new Date().toISOString().split('T')[0]
 
     if (true) {
         console.log("New query");
-        console.log(visitMotiveIds, agendaIds, practiceIds, startDate)
+        console.log(visitMotiveIds, agendaIds, practiceIds, appointmentDate)
         search({
             startDate,
             appointmentDate,
